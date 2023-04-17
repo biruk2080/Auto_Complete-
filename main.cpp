@@ -12,13 +12,13 @@ void testACAll();
 
 void testMain() {
   testBSTAll();
-  testACAll();
+    testACAll();
 }
 int main(int argc, char *argv[]) {
   if (argc == 3) {
     Autocomplete ac;
     string filename = argv[1];
-    string prefix = argv[2];
+     string prefix = argv[2];
     ac.readFile(filename);
     auto results = ac.complete(prefix);
     for (auto &p : results) {

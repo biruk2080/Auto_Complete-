@@ -64,7 +64,6 @@ void test02() {
   b["b"] = 3;
   b["e"] = 4;
   b["z"] = 50;
-  // cout << b;
 
   globalSS.str("");
   b.inorder(printer);
@@ -95,15 +94,21 @@ void test03() {
   b["5"] = 5;
   b["6"] = 6;
   assert(b.height() == 6);
-  // cout << b << endl;
+  cout << b.height() << endl;
+  cout << b << endl;
+  assert(b.contains("2") == true);
+  assert(b.count("6") == 1);
   b.rebalance();
+  cout << b.height() << endl;
   assert(b.height() == 3);
-  // cout << b << endl;
+  cout << b << endl;
+  assert(b.empty() == false);
+  assert(b.count("6") == 1);
   b.clear();
   assert(b.height() == 0);
+  assert(b.empty() == true);
   cout << "Ending test03" << endl;
 }
-
 // // Calling all test functions
 void testBSTAll() {
   test01();

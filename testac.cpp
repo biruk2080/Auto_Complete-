@@ -34,9 +34,8 @@ void testAC02() {
   cout << "Ending tesAC02" << endl;
 }
 
-// // Calling all test functions
+// Calling all test functions
 void testACAll() {
   testAC01();
   testAC02();
-  // TODO(student) Add more tests
 }
