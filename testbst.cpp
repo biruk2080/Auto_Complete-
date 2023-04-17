@@ -64,6 +64,7 @@ void test02() {
   b["b"] = 3;
   b["e"] = 4;
   b["z"] = 50;
+  
 
   globalSS.str("");
   b.inorder(printer);
@@ -99,7 +100,7 @@ void test03() {
   assert(b.contains("2") == true);
   assert(b.count("6") == 1);
   b.rebalance();
-  cout << b.height() << endl;
+  cout << b.height()<< endl;
   assert(b.height() == 3);
   cout << b << endl;
   assert(b.empty() == false);

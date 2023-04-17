@@ -1,6 +1,5 @@
-// Yusuf Pisan pisan@uw.edu
-// 15 Jan 2018
-
+// Biruk Geletu 
+// 04/16/2023
 // BST class
 // Creates a BST to store values
 // Uses Node which holds the data
@@ -31,7 +30,7 @@ public:
   using value_type = pair<key_type, mapped_type>;
 
   // constructor, empty tree
-  BSTMap() = default;
+  BSTMap();
 
   // copy constructor
   BSTMap(const BSTMap &bst);
@@ -45,7 +44,7 @@ public:
   virtual ~BSTMap();
 
   // move not allowed
-  BSTMap(BSTMap &&other) = delete;
+  BSTMap(BSTMap &&other);
 
   // assignment not allowed
   BSTMap &operator=(const BSTMap &other) = delete;
@@ -143,6 +142,44 @@ private:
   // height of a Node, nullptr is 0, root is 1, static, no access to 'this'
   // helper function to height(), used by printVertical
   static int getHeight(const Node *n);
-};
+  
+  /// Helper Functions ///
+  
+  // creat a tree 
+  Node* BSTree(const vector<value_type> &v, const int &first, const int &last);
+  // create a new node 
+  static Node* newNode(const value_type &item);
+  // counting number of nodes in BST
+  int size(Node *root) const;
+  // chack the item is on the BST or not recursivily 
+  bool contains(Node *n, const key_type &key) const;
+  // inorder traversal left - root- right recursivily 
+  void inOrder(Node *n, void visit(const value_type &item)) const;
+  // preorder traversal root - left - right recursivily 
+  void preOrder(Node *n, void visit(const value_type &item)) const;
+  // postorder traversal left - right - root recursivily 
+  void postOrder(Node *n, void visit(const value_type &item)) const;
+  // helper recursive deleting of all nodes in the tree
+void deleteTree(Node *root); 
+// recursive function finds objects that march to the key
+// adds them to a vector of pair objects
+void getAll(vector<value_type> &v, Node *n, const key_type &k) const; 
+// copy all node from the tree to vector inorder
+void saveTree(Node* n, vector<value_type> &v);
+// recursive function for == and != operators
+bool isTreeSame(Node *n, Node *other) const;
+// function to search a given key in a given BST
+  Node* search(Node *root, const key_type &k) const;
+  // insert fanction that inserts the element if no such item exists
+  // return the mapped_type of the item that was inserted
+  mapped_type& insert(const value_type &item);
 
+  // recursive insert helper function that return the Node
+  // of the item that was inserted
+  Node* recursiveInsert(Node *curr, const value_type &item);
+  // function that creates an identical copy of a tree
+  void copyTree(Node *from); 
+  // ostraem helper function that print the stree inorder recursivily 
+  //void ostreamHelper(BSTMap::Node *root, ostream &out) const;
+};
 #endif // BSTMAP_H
